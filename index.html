@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voxora Studios</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="captcha-box">
+      <h2>لأسباب تتعلق بالحماية نحتاج التأكد أنك لست روبوت</h2>
+      <p>ما ناتج العملية: ٨ + ٤ ÷ ٢ ؟</p>
+      <input type="text" id="answer" placeholder="اكتب إجابتك هنا" />
+      <button onclick="checkAnswer()">تأكيد</button>
+      <p id="error" class="hidden">الإجابة غير صحيحة، حاول مرة أخرى.</p>
+    </div>
+    <div class="stream-box hidden">
+      <h2>جارٍ بدء البث الصوتي المباشر...</h2>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

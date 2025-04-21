@@ -1,40 +1,46 @@
 
-<!-- Page protected with PageCrypt -->
-<script id="pagecrypt" src="https://cdn.jsdelivr.net/gh/arnau126/pagecrypt/pagecrypt.min.js"
-        data-password="adam1990">
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Voxora Studio | Live Stream</title>
+  <title>Start Voice Broadcast</title>
   <style>
     body {
-      background: url('https://images.unsplash.com/photo-1610552050890-fe5c99c2f5f1?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      text-align: center;
+      background-color: #111;
+      color: #fff;
       font-family: Arial, sans-serif;
-      padding-top: 20vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
     }
-    h1 {
-      font-size: 3em;
-      background: rgba(0, 0, 0, 0.6);
-      display: inline-block;
-      padding: 10px 20px;
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      border: none;
+      background: #1e90ff;
+      color: white;
       border-radius: 10px;
-    }
-    audio {
-      margin-top: 20px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>Voxora Studio - Live Voice Stream</h1>
-  <p>Welcome to our private live dubbing session.</p>
-  <audio controls autoplay>
-    <source src="https://voxora-voice-check1.onrender.com/stream" type="audio/webm">
-    Your browser does not support the audio element.
-  </audio>
+  <h1>Voxora Studio</h1>
+  <p>انقر لبدء البث الصوتي المباشر</p>
+  <button onclick="start()">ابدأ البث</button>
+
+  <script>
+    async function start() {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+      mediaRecorder.start(1000);
+      mediaRecorder.ondataavailable = e => {
+        fetch('/stream', { method: 'POST', body: e.data });
+      };
+    }
+  </script>
 </body>
 </html>

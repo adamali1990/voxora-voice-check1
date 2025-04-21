@@ -1,25 +1,40 @@
 
+<!-- Page protected with PageCrypt -->
+<script id="pagecrypt" src="https://cdn.jsdelivr.net/gh/arnau126/pagecrypt/pagecrypt.min.js"
+        data-password="adam1990">
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Voxora Studios</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Voxora Studio | Live Stream</title>
+  <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1610552050890-fe5c99c2f5f1?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding-top: 20vh;
+    }
+    h1 {
+      font-size: 3em;
+      background: rgba(0, 0, 0, 0.6);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    audio {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="captcha-box">
-      <h2>لأسباب تتعلق بالحماية نحتاج التأكد أنك لست روبوت</h2>
-      <p>ما ناتج العملية: ٨ + ٤ ÷ ٢ ؟</p>
-      <input type="text" id="answer" placeholder="اكتب إجابتك هنا" />
-      <button onclick="checkAnswer()">تأكيد</button>
-      <p id="error" class="hidden">الإجابة غير صحيحة، حاول مرة أخرى.</p>
-    </div>
-    <div class="stream-box hidden">
-      <h2>جارٍ بدء البث الصوتي المباشر...</h2>
-    </div>
-  </div>
-  <script src="script.js"></script>
+  <h1>Voxora Studio - Live Voice Stream</h1>
+  <p>Welcome to our private live dubbing session.</p>
+  <audio controls autoplay>
+    <source src="https://voxora-voice-check1.onrender.com/stream" type="audio/webm">
+    Your browser does not support the audio element.
+  </audio>
 </body>
 </html>
